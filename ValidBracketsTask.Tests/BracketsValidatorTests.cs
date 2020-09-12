@@ -6,8 +6,8 @@ namespace ValidBracketsTask.Tests
     [TestFixture]
     public class BracketsValidatorTests
     {
-        [TestCase("{{   {", ExpectedResult = true)]
-        [TestCase("[", ExpectedResult = true)]
+        [TestCase("{{   {", ExpectedResult = false)]
+        [TestCase("[", ExpectedResult = false)]
         [TestCase("{432   34}Test [Test][Test Test)", ExpectedResult = false)]
         [TestCase("([([   {{ }}  ])])", ExpectedResult = true)]
         [TestCase("{abc  ([b ]a)}", ExpectedResult = true)]
