@@ -1,6 +1,9 @@
 using System;
 using NUnit.Framework;
 
+#pragma warning disable SA1600
+#pragma warning disable CA1707
+
 namespace ValidBracketsTask.Tests
 {
     [TestFixture]
@@ -37,7 +40,7 @@ namespace ValidBracketsTask.Tests
 
         [Test]
         public void AreValidParentheses_StringIsNull_ThrowsArgumentNullException() =>
-            Assert.Throws<ArgumentNullException>(() => new BracketsValidator().IsValid(null),
-                "String cannot be null.");
+            Assert.Throws<ArgumentNullException>(
+                () => new BracketsValidator().IsValid(null), "String cannot be null.");
     }
 }
