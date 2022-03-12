@@ -15,7 +15,7 @@ namespace ValidBracketsTask
         /// <param name="input">String to validate.</param>
         /// <returns>true if the pairs of brackets are placed correctly, otherwise - false.</returns>
         /// <exception cref="ArgumentNullException">Thrown if string is null.</exception>
-        public bool IsValid(string input)
+        public bool IsValid(string? input)
         {
             throw new NotImplementedException();
         }
