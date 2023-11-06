@@ -1,4 +1,5 @@
-﻿using System;
+﻿#pragma warning disable CA1822 // If I mark IsValid metod as static test can't check it.
+using System;
 
 namespace ValidBracketsTask
 {
