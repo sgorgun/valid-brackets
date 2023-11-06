@@ -7,8 +7,13 @@ namespace ValidBracketsTask
     /// </summary>
     public class BracketsValidator
     {
-        //TODO: Add necessary code and remove this comment.
-        
+        private static readonly Dictionary<char, char> BracketPairs = new ()
+        {
+            { '(', ')' },
+            { '[', ']' },
+            { '{', '}' },
+        };
+
         /// <summary>
         /// Validates of the correct placement of brackets in the string.
         /// </summary>
@@ -17,7 +22,26 @@ namespace ValidBracketsTask
         /// <exception cref="ArgumentNullException">Thrown if string is null.</exception>
         public bool IsValid(string? input)
         {
-            throw new NotImplementedException();
+            if (input == null)
+            {
+                throw new ArgumentNullException(nameof(input), "Can't be null.");
+            }
+
+            var stack = new Stack<char>();
+
+            foreach (var simbol in input)
+            {
+                if (BracketPairs.ContainsKey(simbol))
+                {
+                    stack.Push(simbol);
+                }
+                else if (BracketPairs.ContainsValue(simbol) && (stack.Count == 0 || BracketPairs[stack.Pop()] != simbol))
+                {
+                    return false;
+                }
+            }
+
+            return stack.Count == 0;
         }
     }
 }
